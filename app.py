@@ -131,32 +131,31 @@ if st.session_state.access_granted:
     def doIntroduction():
         # Title and Introduction
 
-        st.title("Climate Change Analysis timbeline in the Himalayan Region")
-        st.write("Timberline Analysis on States : Uttarakhand, Jammu & Kashmir, Sikkim, Himachal Pradesh, and Arunachal Pradesh")
+        st.title("Climate Change Impact on the Himalayan Timberline: Trend and Analysis")
 
         # Create columns for each person
         col1, col2, col3 = st.columns(3)
 
         with col1:
-            st.subheader("***Dr. Shaik Rehana***")
-            st.write("Associate Professor, Lab for Spatial Informatics(LSI)")
-            st.write(" ***IIIT-Hyderabad***, With expertise in [Hydrologic Impacts of Climate Change].")
+            st.subheader("**Dr. Rehana Shaik**")
+            st.write("Associate Professor, Lab for Spatial Informatics(LSI), IIIT-Hyderabad")
+            
             
             st.image("./static/Images/srehana.jpg", use_column_width=True)
+            st.write(" **Area of research:** Hydrologic Impacts of Climate Change,  Regional Hydrologic Modeling,Reservoir Operation, Irrigation Planning and Management, Drought Assessment, Climate Extremes Analysis, Hydroinformatics")
             # Link to Advisor's LinkedIn Profile
-            advisor_linkedin = "[Advisor's LinkedIn Profile](https://www.linkedin.com/in/dr-rehana-shaik-1b59276b)"
+            advisor_linkedin = "[LinkedIn Profile](https://www.linkedin.com/in/dr-rehana-shaik-1b59276b)"
             st.markdown(advisor_linkedin, unsafe_allow_html=True)
             # Link to Advisor's Research Papers
             advisor_papers = "[Advisor's Profile](https://lsi.iiit.ac.in/website/faculty/srehana/srehana.htm)"
             st.markdown(advisor_papers, unsafe_allow_html=True)
         
         with col2:
-            st.subheader("***Avantika Latwal***")
-            st.write("Research Associate and Ph.D. Scholar")
-            st.write(" ***IIIT-Hyderabad***.")
+            st.subheader("**Avantika Latwal**")
+            st.write("Research Associate and Ph.D. Scholar, Lab for Spatial Informatics(LSI), IIIT-Hyderabad")
             st.image("./static/Images/avantika.jpg", use_column_width=True)
             # Link to Guide's LinkedIn Profile
-            guide_linkedin = "[Guide's LinkedIn Profile](https://www.linkedin.com/in/avantika-latwal/)"
+            guide_linkedin = "[LinkedIn Profile](https://www.linkedin.com/in/avantika-latwal/)"
             st.markdown(guide_linkedin, unsafe_allow_html=True)
             # Link to Guide's Research Papers
             # guide_papers = "[Guide's Research Papers](Guide's Research Papers URL)"
@@ -166,13 +165,16 @@ if st.session_state.access_granted:
 
         # Information about You
         with col3:
-            st.subheader("***Lokesh Sharma***")
-            st.write("[M.Tech - CSE] 2022-24")
-            st.write(" ***IIIT-Hyderabad***.")
+            st.subheader("**Lokesh Sharma**")
+            st.write("Masters in Technology - Computer Science and Eng 2022-24, IIIT-Hyderabad")
+
+
 
             # Link to Your LinkedIn Profile
-            st.image("./static/Images/lokesh.jpg", use_column_width=True)
-            your_linkedin = "[Your LinkedIn Profile](https://www.linkedin.com/in/lokesh-sharma-b40a77164/)"
+            st.image("./static/Images/lokesh.jpg", width=280)
+
+            st.write("Machine Learning enthusiast, Natural Language Processing, Geographical Information System")
+            your_linkedin = "[LinkedIn Profile](www.linkedin.com/in/lokesh-sharma-iiith/)"
             st.markdown(your_linkedin, unsafe_allow_html=True)
             githubcode = "[All Code github links](https://github.com/Lokeshiiith/Climate_change_monitoring_tool)"
             st.markdown(githubcode, unsafe_allow_html=True)
@@ -196,7 +198,7 @@ if st.session_state.access_granted:
 
         # Data Clipping Section
         with st.expander("Data Clipping", expanded=True):
-            st.subheader("Data Clipping")
+            st.subheader("**Data Clipping**")
 
             # Data Preparation
             st.markdown("Data Preparation:")
@@ -205,11 +207,12 @@ if st.session_state.access_granted:
                 ''')
 
             # Loading Shapefiles
-            st.markdown("Loading Shapefiles:")
+            st.markdown("**Loading Shapefiles:**")
             st.write("The shapefiles representing the boundaries of the five states were obtained and loaded into the script using the `geopandas` library. These shapefiles define the spatial extent of each state.")
-
+            image = "./static/Images/shape.png"  # Replace with the actual image file path
+            st.image(image, width=200)
             # Spatial Clipping
-            st.markdown("Spatial Clipping:")
+            st.markdown("**Spatial Clipping:**")
             st.write("To clip the precipitation data to the boundaries of each state for each year, a masking operation was performed. This was done using the `xarray` capabilities, where the precipitation data was masked based on the geometries defined by the shapefiles of the respective state.")
 
         # Analysis and Visualization Section
@@ -241,6 +244,14 @@ if st.session_state.access_granted:
         with st.expander("3. Interpolation Methods"):
             st.subheader("Interpolation Methods  used  `scipy` library")
 
+            # add image
+            st.markdown("<span style='color:blue'>**Aphrodite Dataset Points (blue color) : The Aphrodite dataset provides precipitation data at a spatial resolution of 0.25° (approximately 25 km)**</span>", unsafe_allow_html=True)
+            image = "./static/Images/aphrodite_points.png"  # Replace with the actual image file path
+            st.image(image, use_column_width=True)
+            st.markdown("<span style='color:red'>**Predicting or Interpolating timberline points on basis of Aphrodite points**</span>", unsafe_allow_html=True)
+            st.write("<span style='color:red'>However, the timberline points are located at a much finer spatial resolution, approximately 30 meters apart.**</span>", unsafe_allow_html=True)
+            image = "./static/Images/timberlinepoints.png"  # Replace with the actual image file path
+            st.image(image, use_column_width=True)
             # Linear Interpolation
             st.markdown("***Linear Interpolation***:")
             st.write("- **Explanation**: Estimates values between data points assuming a linear relationship.")
@@ -284,70 +295,161 @@ if st.session_state.access_granted:
             st.write('''- Results: The results of Kendall's Tau test were used to identify whether there was a)
                     statistically significant trend in precipitation within each altitude range for each state. The
                     results indicated the direction (positive or negative) and significance level of the trend.''')
+            st.markdown(
+                """
+                **Procedure:**
+                For each altitude range and state, the annual total precipitation data for all years from 1951 to 2015 were subjected to Kendall's Tau test. This test measures the correlation or concordance between data points in time series data, helping determine whether there is a statistically significant trend, whether it's increasing or decreasing.
 
+                **Results:**
+                The results of Kendall's Tau test were used to identify whether there was a statistically significant trend in precipitation within each altitude range for each state. The results indicated the direction (positive or negative) and significance level of the trend.
+                **Formula:**
+                Kendall's Tau is calculated using the following formula:
+                ```
+                τ = (P - Q) / (n * (n - 1) / 2)
+                ```
+                where:
+                - τ is the Kendall's Tau coefficient (-1 <= τ <= 1)
+                - P is the number of concordant pairs (pairs where the second value is greater than or equal to the first)
+                - Q is the number of discordant pairs (pairs where the second value is less than the first)
+                - n is the number of data points
+
+                **Interpretation:**
+                - A value of τ closer to 1 indicates a stronger positive trend (increasing values over time).
+                - A value of τ closer to -1 indicates a stronger negative trend (decreasing values over time).
+                - A value of τ closer to 0 indicates no significant trend.
+                The significance of the trend is determined using a p-value obtained from a statistical test (e.g., Z-test). A p-value less than a chosen significance level (e.g., 0.05) indicates that the observed trend is statistically significant.
+                """
+            )
 
             # SEN Slope Test
             st.markdown("2. ***SEN Slope Test***:")
-            st.write("SEN (Seasonal Mann-Kendall) Slope Test is a statistical test used to detect monotonic trends in seasonal time series data. It's a variation of the Mann-Kendall test that focuses on seasonal trends.")
-            st.write("- Procedure: For each altitude range and state, the annual total precipitation data was subjected to the SEN Slope Test to identify the direction and significance of the seasonal trend. This test is useful for analyzing precipitation trends specific to each season.")
-            st.write("- Results: The SEN Slope Test results provide insights into the direction (positive or negative) and significance of the seasonal trend in precipitation data for each altitude range and state.")
 
-        with st.expander("5. Results and Discussion"):
+            st.markdown(
+                """
+                SEN (Seasonal Mann-Kendall) Slope Test is a statistical test used to detect monotonic trends in seasonal time series data. It's a variation of the Mann-Kendall test that focuses on seasonal trends.
+                **Procedure:**
+                For each altitude range and state, the annual total precipitation data was subjected to the SEN Slope Test to identify the direction and significance of the seasonal trend. This test is useful for analyzing precipitation trends specific to each season.
 
-            # Results and Discussion
-            st.subheader("Results and Discussion")
-            st.write("1. **Key Findings**:")
-            st.write("Summarize the significant trends and slope values observed in the precipitation data for each state and altitude range.")
-            st.write("...")  # Include more details here
+                **Results:**
+                The SEN Slope Test results provide insights into the direction (positive or negative) and significance of the seasonal trend in precipitation data for each altitude range and state.
+
+                **Formula:**
+                The SEN slope is calculated using the formula:
+                
+                SEN slope = (Σ(X_i - X̄)) / (Σ(Y_i - Ȳ))
+                
+                Where:
+                - X_i and Y_i are the seasonal time series data points.
+                - X̄ and Ȳ are the means of the seasonal time series data.
+                - n is the number of data points in the seasonal time series.
+                """
+            )
+
 
             # Conclusion
-        with st.expander("6.Conclusion"):
+        with st.expander("Conclusion"):
         
+            # st.write("Sum up the main findings of your analysis and reiterate their importance in the context of climate studies and regional planning.")
+            # Header
+            st.title("Understanding Climate Change Impact on the Himalayan Timberline")
+
+            # Overview
+            st.header("Overview:")
+            st.write("The study analyzed climatic variations, particularly air temperature and precipitation, at the timberline elevation in the Indian Himalayas.")
+            st.write("It aimed to establish the relationship between climatic parameters and timberline altitude.")
+
+            # Key Findings
+            st.header("Key Findings:")
+            st.write("- Regions closer to the snow line are more vulnerable to climate change compared to inner regions, which maintain their climatic features.")
+            st.write("- Over approximately four decades of climate warming, timberline areas experienced increased rainfall, particularly in inner timberline sites.")
+            st.write("- Despite global warming, the upward shift of the timberline was limited. However, areas with higher temperature rises saw an increase in timberline elevation.")
+            st.write("  - Example: In Sikkim, areas above 3800 meters experienced a temperature difference of 1.33 °C, leading to an upward shift in timberline elevation.")
+            st.write("- The study highlighted the sensitivity of the timberline ecotone to climate change, with temperature and precipitation being natural drivers of altitude changes.")
+
+            # Urgent Action Needed
+            st.header("Urgent Action Needed:")
+            st.write("Urgent measures are necessary to mitigate the impacts of climate change on the Himalayan timberline.")
+            st.write("Solutions should address immediate and long-term challenges, including:")
+            st.write("  - Reducing greenhouse gas emissions.")
+            st.write("  - Promoting sustainable land use practices.")
+            st.write("  - Enhancing forest conservation efforts.")
+            st.write("  - Investing in climate-resilient infrastructure.")
+            st.write("- Community-based adaptation strategies are essential to empower local communities to cope with and adapt to changing climate conditions.")
+
+            # Conclusion
             st.subheader("Conclusion")
-            st.write("Sum up the main findings of your analysis and reiterate their importance in the context of climate studies and regional planning.")
+            st.write("- Proactive steps to protect and restore the Himalayan timberline region are crucial.")
+            st.write("- By safeguarding biodiversity, ensuring water and food security, and promoting sustainable development, we can secure a resilient and thriving future for the Himalayan timberline and its inhabitants.")
+                
 
-            # References
-        with st.expander("7.References"):
-            st.subheader("References")
-            st.write("Cite any sources, data repositories, or tools used in your analysis.")
-
-            # Appendices
-        with st.expander("8.Appendices"):
-            st.subheader("Appendices")
-            st.write("Include any supplementary information, code snippets, or additional plots that support your analysis.")
-
-        # Anchor Links for Direct Navigation
-        st.markdown("[Go to Data Clipping](#data-clipping)")
-        st.markdown("[Go to Analysis and Visualization](#analysis-and-visualization)")
-        st.markdown("[Go to Interpolation Methods](#interpolation-methods)")
-        st.markdown("[Go to Trend Analysis](#trend-analysis)")
-        st.markdown("[Go to Results and Discussion](#results-and-discussion)")
-        st.markdown("[Go to Conclusion](#conclusion)")
-        st.markdown("[Go to References](#references)")
-        st.markdown("[Go to Appendices](#appendices)")
+       
 
 
 
     def ProjectInformation():
 
-        st.title("Report: Trend Analysis of Precipitation Data (1951-2015) and Temperature Data (1961-2015) in the Himalayan Region")
+        # st.title("Report: Trend Analysis of Precipitation Data (1951-2015) and Temperature Data (1961-2015) in the Himalayan Region")
+        st.title("Objective of the Project")
+        st.write('The main aim of this study is to assess the impact of climate change across the Himalayan Timberline. This involves developing a novel tool that facilitates the analysis of correlations between Himalayan Timberline elevation and temperature, as well as precipitation patterns. The objective is to enhance our understanding of the intricate relationships between climate variables and the Himalayan ecosystem, ultimately contributing valuable insights for effective climate change mitigation and adaptation strategies in the region.')
+        
+        st.title("Study Area")
+        st.write('The study area was defined by the careful selection of five states within the Indian Himalaya, as depicted in the figure, in order to accomplish the objective.')
+        st.image("./static/Images/studyarea.jpeg", use_column_width=True)
+        st.title("Framework")
+        st.image("./static/Images/framework.png", use_column_width=True)
+        st.markdown("Framework of the project")
+
+
+        st.title("Detailed Methodology")
         executive_summary()
         getdetails()
 
 
     # Information about Temperature Analysis
-    navigation = st.sidebar.radio("Select a Page", [
-                                "Introduction","Project Information", "Timberline Points", "Problem Statements", "Temperature Analysis", "Precipitation Analysis"])
+    navigation = st.sidebar.radio("Select a Page", ["Introduction", "Team Analysis", "About Project",
+                                "Objective and Framework" ,"Timberline Points", "Problem Visualize", "Temperature Analysis", "Precipitation Analysis"])
 
     # Introduction Page
     if navigation == "Introduction":
+        hackathon_image_url = "./static/images/Cloudera.jpeg"  # Replace with the actual URL of the image
+        st.image(hackathon_image_url, caption='', use_column_width=True)
+        st.title("Climate and Sustainability Hackathon with Cloudera")
+        st.write("Welcome to the Cloudera Hackathon showcase by team - IIIT-Hyderabad!")
+
+        # Add a link to the hackathon
+        hackathon_link = "https://www.hackerearth.com/challenges/hackathon/climate-and-sustainability-hackathon-with-cloudera-and-amd/"  # Replace with the actual URL of the hackathon
+        st.markdown(f"**[Link to Hackathon]({hackathon_link})**")
+        
+    if navigation == "Team Analysis":
             # Add an image of the institute
         institute_image = "./static/Images/iiit_logo.png"  # Replace with the actual image file path
         st.image(institute_image, use_column_width=True)
         doIntroduction()
 
-    if navigation == "Project Information":
+    if navigation == "Objective and Framework":
         ProjectInformation()
+
+    if navigation == "About Project":
+        st.title('Background')
+        st.write('The Himalayan timberline, situated at the upper limit of tree growth in the high mountain range, is a critical ecological zone characterized by its unique vegetation and sensitive balance. Spanning across various altitudes (e.g. between 3,500 to 4,500 meters above sea level), this region serves as a vital transition zone between the forested slopes below and the barren alpine terrain above. Here, a diverse array of plant species, including hardy shrubs, grasses, and stunted & scattered trees, have adapted to harsh environmental conditions, including extreme temperatures, high winds, and low oxygen levels. The timberline plays a crucial role in stabilizing slopes, regulating water flow, and providing habitat for numerous wildlife species. However, the Himalayan timberline faces increasing threats from climate change, with rising temperatures, shifting precipitation patterns, and changing weather extremes challenging the delicate balance of this fragile ecosystem. Understanding and mitigating these impacts are essential for preserving the ecological integrity and biodiversity of the Himalayan timberline for future generations.')
+        st.image("./static/Images/timberline.jpg", use_column_width=True)
+        st.markdown("**Pictorial Representation of Himalayan Timberline Ecosystem**")
+        st.markdown("*Source: Dieterich T (2018) Biodiversity Monitoring and Conservation Programs for Kintrishi PAs in Georgia, Caucasus*")
+        
+        st.title('Problem Statement')
+        st.write('The Himalayan timberline is experiencing rapid warming trends, outpacing global averages, particularly evident in high-elevation regions such as the Trans-Himalayan cold deserts. These warming trends render the Himalayan timberline increasingly vulnerable to the impacts of climate change, including shifts in precipitation patterns, extreme weather events, and alterations in temperature gradients.')
+        st.image("./static/Images/climatechange.jpeg", use_column_width=True)
+        st.markdown("**Pictorial Representation of High Mountain environments in a changing climate**")
+        st.markdown("*Source: https://journals.sagepub.com/doi/10.1177/03091333231193844*")
+        st.markdown("""
+            • Changes in temperature and precipitation significantly impact timberline dynamics, with temperature lapse rates indicating elevation-dependent warming. Understanding the response of timberline vegetation to these changes is essential for predicting future ecosystem shifts.
+
+            • The implications of climate change on the Himalayan timberline extend beyond vegetation dynamics, affecting slope stability, water regulation, and wildlife habitat. Preservation of the delicate balance of this ecosystem is paramount for maintaining biodiversity and ecosystem services.
+
+            • Addressing the challenges posed by climate change in the Himalayan timberline requires effective mitigation and adaptation strategies tailored to the unique environmental conditions and socio-economic context of the region.
+            """)
+        st.markdown("**Thus, to understand these challenges the study of impact of different climatic parameters (temperature and precipitation) on timberline ecosystem is important. So that researchers and policymakers can work towards safeguarding the ecological integrity and resilience of the Himalayan timberline ecosystem in the face of ongoing climate change.**")
+
 
     if navigation == "Timberline Points":
         st.title("Mapping Captured Timberline points which are approx 30 meter distance")
@@ -621,7 +723,6 @@ if st.session_state.access_granted:
             st.plotly_chart(fig)
             if type == "whole-range":
                  #upto 4 decimal print r2, p-value and slope
-                print("Trendline :")
                 r_squared = round(r_squared, 4)
                 p_value = round(p_value, 4)
                 slope = round(slope, 4)
@@ -1295,7 +1396,7 @@ if st.session_state.access_granted:
         output = st.empty()
 
 
-    if navigation == "Problem Statements":
+    if navigation == "Problem Visualize":
         plt.title("Himalayan Mountain")
 
         def printSinCurve():
