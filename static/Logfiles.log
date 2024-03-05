@@ -1,0 +1,52 @@
+2024-03-05 19:04:02,138 - INFO - Your Computer Name is:LOKESH
+2024-03-05 19:04:02,138 - INFO - Your Computer IP Address is:10.2.132.119
+2024-03-05 19:04:06,317 - INFO - Your Computer Name is:LOKESH
+2024-03-05 19:04:06,317 - INFO - Your Computer IP Address is:10.2.132.119
+2024-03-05 19:04:08,961 - INFO - Your Computer Name is:LOKESH
+2024-03-05 19:04:08,961 - INFO - Your Computer IP Address is:10.2.132.119
+2024-03-05 19:04:11,376 - INFO - Your Computer Name is:LOKESH
+2024-03-05 19:04:11,377 - INFO - Your Computer IP Address is:10.2.132.119
+2024-03-05 19:04:11,905 - INFO - Your Computer Name is:LOKESH
+2024-03-05 19:04:11,905 - INFO - Your Computer IP Address is:10.2.132.119
+2024-03-05 19:04:21,699 - INFO - Your Computer Name is:LOKESH
+2024-03-05 19:04:21,699 - INFO - Your Computer IP Address is:10.2.132.119
+2024-03-05 19:04:23,807 - INFO - Your Computer Name is:LOKESH
+2024-03-05 19:04:23,807 - INFO - Your Computer IP Address is:10.2.132.119
+2024-03-05 19:04:26,191 - INFO - Your Computer Name is:LOKESH
+2024-03-05 19:04:26,191 - INFO - Your Computer IP Address is:10.2.132.119
+2024-03-05 19:04:27,304 - INFO - Your Computer Name is:LOKESH
+2024-03-05 19:04:27,304 - INFO - Your Computer IP Address is:10.2.132.119
+2024-03-05 19:04:30,168 - INFO - Your Computer Name is:LOKESH
+2024-03-05 19:04:30,168 - INFO - Your Computer IP Address is:10.2.132.119
+2024-03-05 19:04:31,535 - INFO - Your Computer Name is:LOKESH
+2024-03-05 19:04:31,535 - INFO - Your Computer IP Address is:10.2.132.119
+2024-03-05 19:04:31,554 - INFO - States: J&K
+2024-03-05 19:04:31,554 - INFO - Season: Annually
+2024-03-05 19:04:31,554 - INFO - Analysis_type: Annually
+2024-03-05 19:04:31,555 - INFO - Months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+2024-03-05 19:04:31,555 - INFO - Interpolation: Linear
+2024-03-05 19:04:31,555 - INFO - Years to Show: [1, 5]
+2024-03-05 19:04:31,556 - INFO - Years to Extract: (1961, 2015)
+2024-03-05 19:04:31,556 - INFO - Selected values logged.
+2024-03-05 19:04:33,749 - INFO - ---Plotted graph for Jammu & Kashmir-Linear-['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']----
+2024-03-05 19:04:33,949 - INFO - ---Showing Sen Slope test for Jammu & Kashmir-Linear-['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']----
+2024-03-05 19:04:34,133 - INFO - ---Plotted graph for Jammu & Kashmir-Linear-Annual----
+2024-03-05 19:04:34,158 - INFO - ---Showing Sen Slope test for Jammu & Kashmir-Linear-Annual----
+2024-03-05 19:05:13,317 - INFO - Your Computer Name is:LOKESH
+2024-03-05 19:05:13,320 - INFO - Your Computer IP Address is:10.2.132.119
+2024-03-05 19:05:14,613 - INFO - Your Computer Name is:LOKESH
+2024-03-05 19:05:14,613 - INFO - Your Computer IP Address is:10.2.132.119
+2024-03-05 19:05:18,781 - INFO - Your Computer Name is:LOKESH
+2024-03-05 19:05:18,782 - INFO - Your Computer IP Address is:10.2.132.119
+2024-03-05 19:05:18,802 - INFO - States: J&K
+2024-03-05 19:05:18,802 - INFO - Season: Annually
+2024-03-05 19:05:18,802 - INFO - Analysis_type: Annually
+2024-03-05 19:05:18,803 - INFO - Months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+2024-03-05 19:05:18,803 - INFO - Interpolation: Linear
+2024-03-05 19:05:18,803 - INFO - Years to Show: [1, 5]
+2024-03-05 19:05:18,804 - INFO - Years to Extract: (1961, 2015)
+2024-03-05 19:05:18,804 - INFO - Selected values logged.
+2024-03-05 19:05:19,663 - INFO - ---Plotted graph for Jammu & Kashmir-Linear-['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']----
+2024-03-05 19:05:19,887 - INFO - ---Showing Sen Slope test for Jammu & Kashmir-Linear-['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']----
+2024-03-05 19:05:20,169 - INFO - ---Plotted graph for Jammu & Kashmir-Linear-Annual----
+2024-03-05 19:05:20,218 - INFO - ---Showing Sen Slope test for Jammu & Kashmir-Linear-Annual----
