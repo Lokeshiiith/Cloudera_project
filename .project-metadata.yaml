@@ -1,15 +1,9 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-# More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
-
-
-
-name: Deploy on cloudera
+name: Image Analysis
 description: Prototype to demonstrate semantic image search
-author: iiithydclimatechangetrend
+author: Cloudera Inc.
 specification_version: 1.0
 prototype_version: 2.0
-date: "2022-03-25"
+date: "2024-04-25"
 
 runtimes:
   - editor: Workbench
@@ -21,34 +15,30 @@ tasks:
     name: Install Dependencies
     script: scripts/install_dependencies.py
     kernel: python3
-environment_variables:
-  RANDOM_VARIABLE_NAME:
-    default: "DEFAULT-VALUE"
-    description: "A description providing user clarifying information about the variable."
-    required: false
-
-runtimes:
-  - editor: Workbench ## Other acceptable values are determined by the runtimes available in your CML environment
-    kernel: Python 3.10 ## Same here, check your runtimes (custom runtimes can be added as well)
-    edition: Standard ## Particularly relevant if using GPUs, Nvidia GPU
-
-## Below are some sample tasks based on some of the most popular aspects of AMP creation.
-tasks:
-
-  ## Install Dependencies Task
-  - type: run_session
-    name: Install Dependencies
-    script: cml/install_dependencies.py
-    short_summary: Install Requirements and Dependencies
-    kernel: python3
     cpu: 2
     memory: 4
 
-  ## Launch Streamlit App Task
+  - type: create_job
+    name: Create FAISS index
+    entity_label: create_index
+    script: cml/create_index.py
+    arguments: None
+    short_summary: Job to create FAISS index.
+    cpu: 2
+    memory: 4
+    environment:
+      TASK_TYPE: CREATE/RUN_JOB
+
+  - type: run_job
+    entity_label: create_index
+    short_summary: Running FAISS index creation job.
+    long_summary: >-
+      Running FAISS index creation job.
+
   - type: start_application
-    name: Streamlit App
-    subdomain: streamlit
+    name: Application to serve UI
+    short_summary: Create an application to serve the image analysis UI
+    subdomain: imageanalysis
     script: scripts/launch_app.py
-    short_summary: Start Streamlit application
     environment_variables:
       TASK_TYPE: START_APPLICATION
