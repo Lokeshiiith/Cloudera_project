@@ -19,7 +19,7 @@ runtimes:
 tasks:
   - type: run_session
     name: Install Dependencies
-    script: cml/install_dependencies.py
+    script: scripts/install_dependencies.py
     kernel: python3
 environment_variables:
   RANDOM_VARIABLE_NAME:
@@ -48,7 +48,7 @@ tasks:
   - type: start_application
     name: Streamlit App
     subdomain: streamlit
-    script: cml/launch_app.py
+    script: scripts/launch_app.py
     short_summary: Start Streamlit application
     environment_variables:
       TASK_TYPE: START_APPLICATION
