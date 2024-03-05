@@ -2,66 +2,53 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - iiithydclimatechangetrend
 
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+name: Deploy on cloudera
+description: Prototype to demonstrate semantic image search
+author: iiithydclimatechangetrend
+specification_version: 1.0
+prototype_version: 2.0
+date: "2022-03-25"
 
-    steps:
-      - uses: actions/checkout@v4
+runtimes:
+  - editor: Workbench
+    kernel: Python 3.9
+    edition: Standard
 
-      - name: Set up Python version
-        uses: actions/setup-python@v1
-        with:
-          python-version: '3.10'
+tasks:
+  - type: run_session
+    name: Install Dependencies
+    script: cml/install_dependencies.py
+    kernel: python3
+environment_variables:
+  RANDOM_VARIABLE_NAME:
+    default: "DEFAULT-VALUE"
+    description: "A description providing user clarifying information about the variable."
+    required: false
 
-      - name: Create and start virtual environment
-        run: |
-          python -m venv venv
-          source venv/bin/activate
+runtimes:
+  - editor: Workbench ## Other acceptable values are determined by the runtimes available in your CML environment
+    kernel: Python 3.10 ## Same here, check your runtimes (custom runtimes can be added as well)
+    edition: Standard ## Particularly relevant if using GPUs, Nvidia GPU
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+## Below are some sample tasks based on some of the most popular aspects of AMP creation.
+tasks:
 
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+  ## Install Dependencies Task
+  - type: run_session
+    name: Install Dependencies
+    script: cml/install_dependencies.py
+    short_summary: Install Requirements and Dependencies
+    kernel: python3
+    cpu: 2
+    memory: 4
 
-      - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v3
-        with:
-          name: python-app
-          path: |
-            release.zip
-            !venv/
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v3
-        with:
-          name: python-app
-
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
-
-      - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2
-        id: deploy-to-webapp
-        with:
-          app-name: 'iiithydclimatechangetrend'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B3CFE6BBDD3D4746AB60C3EE4E98D5CD }}
+  ## Launch Streamlit App Task
+  - type: start_application
+    name: Streamlit App
+    subdomain: streamlit
+    script: cml/launch_app.py
+    short_summary: Start Streamlit application
+    environment_variables:
+      TASK_TYPE: START_APPLICATION
