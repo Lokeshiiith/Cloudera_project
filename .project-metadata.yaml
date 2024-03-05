@@ -1,5 +1,5 @@
-name: Image Analysis
-description: Prototype to demonstrate semantic image search
+name: Timberline Analysis
+description: To find the ranges which are in critical condition and need immediate attention
 author: Cloudera Inc.
 specification_version: 1.0
 prototype_version: 2.0
