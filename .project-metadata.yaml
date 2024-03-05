@@ -18,23 +18,6 @@ tasks:
     cpu: 2
     memory: 4
 
-  - type: create_job
-    name: Create FAISS index
-    entity_label: create_index
-    script: cml/create_index.py
-    arguments: None
-    short_summary: Job to create FAISS index.
-    cpu: 2
-    memory: 4
-    environment:
-      TASK_TYPE: CREATE/RUN_JOB
-
-  - type: run_job
-    entity_label: create_index
-    short_summary: Running FAISS index creation job.
-    long_summary: >-
-      Running FAISS index creation job.
-
   - type: start_application
     name: Application to serve UI
     short_summary: Create an application to serve the image analysis UI
