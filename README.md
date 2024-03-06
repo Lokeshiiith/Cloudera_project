@@ -1,9 +1,7 @@
 # Streamlit as a CML Application
 
-![The Streamlit logo](statics/images/Cloudera.jpeg)
+![Cloudera](./statics/Images/Cloudera.jpeg)
 
-A minimal example of a [Streamlit](https://www.streamlit.io/) application running as a CML or CDSW Application.
-We display and chart a small dataset with Seaborn.
 
 ## Repository Structure
 

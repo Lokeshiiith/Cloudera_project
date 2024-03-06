@@ -411,7 +411,7 @@ if st.session_state.access_granted:
 
     # Introduction Page
     if navigation == "Introduction":
-        hackathon_image_url = "./static/images/Cloudera.jpeg"  # Replace with the actual URL of the image
+        hackathon_image_url = "./static/Images/Cloudera.jpeg"  # Replace with the actual URL of the image
         st.image(hackathon_image_url, caption='', use_column_width=True)
         st.title("Climate and Sustainability Hackathon with Cloudera")
         st.write("Welcome to the Cloudera Hackathon showcase by team - IIIT-Hyderabad!")
