@@ -1,6 +1,6 @@
 # Streamlit as a CML Application
 
-![Cloudera](./statics/Images/Cloudera.jpeg)
+![Cloudera](./static/Images/Cloudera.jpeg)
 
 
 ## Repository Structure
